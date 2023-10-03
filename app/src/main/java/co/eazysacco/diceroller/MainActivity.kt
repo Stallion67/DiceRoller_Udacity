@@ -3,7 +3,10 @@ package co.eazysacco.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
+import java.util.*
+import kotlin.random.Random as Random1
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +16,15 @@ class MainActivity : AppCompatActivity() {
         rollButton.text="Let's Roll"
 
         rollButton.setOnClickListener{
-            Toast.makeText(this,"Button Clicked",Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this,"Button Clicked",Toast.LENGTH_SHORT).show()
+            rollDice() //function to roll dice
         }
+    }
+
+    private fun rollDice() {
+        val resultText:TextView =findViewById(R.id.result_text)
+       val randomInt= Random().nextInt(6)+1
+        resultText.text=randomInt.toString()
+
     }
 }
